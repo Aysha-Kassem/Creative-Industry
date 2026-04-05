@@ -1,62 +1,64 @@
-export default function Contact() {
+export default function Contact({ t }) {
   return (
     <section id="contact">
       <div className="contact-inner">
         <div className="contact-text reveal">
           <div className="section-tag" style={{ color: "var(--green-light)" }}>
-            تواصل معنا
+            {t.tag}
           </div>
           <h2 className="section-title" style={{ color: "white" }}>
-            هل لديك مشروع
+            {t.titleMain}
             <br />
-            <span style={{ color: "var(--green-light)" }}>في ذهنك؟</span>
+            <span style={{ color: "var(--green-light)" }}>{t.titleHighlight}</span>
           </h2>
-          <p className="section-desc" style={{ color: "rgba(255,255,255,0.6)" }}>
-            نحن هنا لتحويل أفكارك الصناعية إلى واقع ملموس بأعلى معايير الجودة
+          <p className="section-desc" style={{ color: "rgba(255,255,255,0.82)" }}>
+            {t.desc}
           </p>
           <div className="contact-details">
-            <div className="contact-item">
-              <div className="contact-item-icon">📍</div>
-              <span>سلطنة عُمان / مسقط</span>
-            </div>
-            <div className="contact-item">
-              <div className="contact-item-icon">📞</div>
-              <span dir="ltr">+968 9983 6368 &nbsp;|&nbsp; +968 9513 6368</span>
-            </div>
-            <div className="contact-item">
-              <div className="contact-item-icon">✉️</div>
-              <span>creativeindustry33@hotmail.com</span>
-            </div>
+            {t.details.map((item) => (
+              <div className="contact-item" key={item.text}>
+                <div className="contact-item-icon">{item.icon}</div>
+                <span dir={item.dir || undefined}>{item.text}</span>
+              </div>
+            ))}
           </div>
         </div>
         <div className="contact-form reveal">
           <div className="form-group">
-            <label className="form-label">الاسم الكامل</label>
-            <input className="form-input" type="text" placeholder="أدخل اسمك" />
+            <label className="form-label">{t.form.name}</label>
+            <input
+              className="form-input"
+              type="text"
+              placeholder={t.form.namePlaceholder}
+            />
           </div>
           <div className="form-group">
-            <label className="form-label">البريد الإلكتروني</label>
+            <label className="form-label">{t.form.email}</label>
             <input
               className="form-input"
               type="email"
-              placeholder="example@email.com"
+              placeholder={t.form.emailPlaceholder}
               dir="ltr"
             />
           </div>
           <div className="form-group">
-            <label className="form-label">رقم الهاتف</label>
+            <label className="form-label">{t.form.phone}</label>
             <input
               className="form-input"
               type="tel"
-              placeholder="+968 XXXX XXXX"
+              placeholder={t.form.phonePlaceholder}
               dir="ltr"
             />
           </div>
           <div className="form-group">
-            <label className="form-label">رسالتك</label>
-            <textarea className="form-input" rows={3} placeholder="اكتب رسالتك هنا..." />
+            <label className="form-label">{t.form.message}</label>
+            <textarea
+              className="form-input"
+              rows={3}
+              placeholder={t.form.messagePlaceholder}
+            />
           </div>
-          <button className="form-submit">إرسال الرسالة ✦</button>
+          <button className="form-submit">{t.form.submit}</button>
         </div>
       </div>
     </section>

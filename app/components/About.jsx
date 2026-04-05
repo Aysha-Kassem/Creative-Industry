@@ -1,65 +1,39 @@
-export default function About() {
+import { Fragment } from "react";
+
+export default function About({ t }) {
   return (
     <section id="about">
       <div className="about-visual reveal">
         <div className="about-card-3d" id="aboutCard3d">
           <div className="about-card-inner">
-            <div className="about-stat">
-              <div className="about-stat-num">+10</div>
-              <div className="about-stat-label">سنوات خبرة</div>
-            </div>
-            <div className="about-divider" />
-            <div className="about-stat">
-              <div className="about-stat-num">100%</div>
-              <div className="about-stat-label">كوادر عمانية</div>
-            </div>
-            <div className="about-divider" />
-            <div className="about-stat">
-              <div className="about-stat-num">🏆</div>
-              <div className="about-stat-label">معايير عالمية</div>
-            </div>
+            {t.stats.map((stat, index) => (
+              <Fragment key={stat.label}>
+                <div className="about-stat">
+                  <div className="about-stat-num">{stat.value}</div>
+                  <div className="about-stat-label">{stat.label}</div>
+                </div>
+                {index < t.stats.length - 1 && <div className="about-divider" />}
+              </Fragment>
+            ))}
           </div>
         </div>
       </div>
       <div className="about-text reveal">
-        <div className="section-tag">من نحن</div>
+        <div className="section-tag">{t.tag}</div>
         <h2 className="section-title">
-          شركة <span>عمانية</span> بكوادر متميزة
+          {t.titleMain} <span>{t.titleHighlight}</span> {t.titleRest}
         </h2>
-        <p className="section-desc">
-          الصناعة الإبداعية شركة بإدارة عمانية وكادر مميز من مهندسين عمانيين ذوي خبرة
-          أكثر من عشر سنوات. جاءت لتلائم الخطط الاستراتيجية الصناعية في السلطنة،
-          وتساهم في وصولها إلى مصاف الدول المتقدمة.
-        </p>
+        <p className="section-desc">{t.desc}</p>
         <div className="about-features">
-          <div className="feature-item">
-            <div className="feature-icon">🏭</div>
-            <div className="feature-text">
-              <h4>معايير عالمية</h4>
-              <p>وحدات صناعية وفق أحدث المواصفات</p>
+          {t.features.map((feature) => (
+            <div className="feature-item" key={feature.title}>
+              <div className="feature-icon">{feature.icon}</div>
+              <div className="feature-text">
+                <h4>{feature.title}</h4>
+                <p>{feature.text}</p>
+              </div>
             </div>
-          </div>
-          <div className="feature-item">
-            <div className="feature-icon">⚙️</div>
-            <div className="feature-text">
-              <h4>تقنيات متطورة</h4>
-              <p>ابتكار صناعي وتقنية معلومات</p>
-            </div>
-          </div>
-          <div className="feature-item">
-            <div className="feature-icon">🛡️</div>
-            <div className="feature-text">
-              <h4>صحة وسلامة</h4>
-              <p>بيئة عمل آمنة ومعتمدة</p>
-            </div>
-          </div>
-          <div className="feature-item">
-            <div className="feature-icon">🌍</div>
-            <div className="feature-text">
-              <h4>انتشار عالمي</h4>
-              <p>أسواق محلية وإقليمية ودولية</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

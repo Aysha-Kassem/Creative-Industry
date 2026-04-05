@@ -1,28 +1,26 @@
-export default function Hero() {
+export default function Hero({ t }) {
   return (
     <section id="hero">
       <canvas id="hero-canvas" />
       <div className="hero-content">
-        <div className="hero-tag">🏭 صناعة عمانية إبداعية لامثيل لها</div>
+        <div className="hero-tag">{t.tag}</div>
         <h1 className="hero-title">
-          الصناعة<br />
-          <span>الإبداعية</span>
+          {t.titleMain}
+          <br />
+          <span>{t.titleHighlight}</span>
         </h1>
-        <p className="hero-subtitle">
-          مصنع عماني متخصص في توفير خطوط الإنتاج الصناعية والمنتجات البلاستيكية بأعلى
-          معايير الجودة العالمية
-        </p>
+        <p className="hero-subtitle">{t.subtitle}</p>
         <div className="hero-btns">
           <a href="#services" className="btn-primary">
-            اكتشف خدماتنا
+            {t.primary}
           </a>
           <a href="#contact" className="btn-outline">
-            تواصل معنا
+            {t.secondary}
           </a>
         </div>
       </div>
       <div className="hero-scroll">
-        <span>scroll</span>
+        <span>{t.scroll}</span>
         <div className="scroll-line" />
       </div>
     </section>

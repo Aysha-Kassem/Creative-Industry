@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import About from "./About";
 import Clients from "./Clients";
 import Contact from "./Contact";
@@ -14,6 +14,7 @@ import Navbar from "./Navbar";
 import Services from "./Services";
 import Vision from "./Vision";
 import Why from "./Why";
+import { content } from "../content";
 
 const HERO_SELECTORS = [
   ".hero-tag",
@@ -25,6 +26,27 @@ const HERO_SELECTORS = [
 
 export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [lang, setLang] = useState("ar");
+  const [theme, setTheme] = useState("light");
+
+  const t = useMemo(() => content[lang] || content.ar, [lang]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const savedLang = window.localStorage.getItem("ci-lang");
+    const savedTheme = window.localStorage.getItem("ci-theme");
+    if (savedLang === "ar" || savedLang === "en") setLang(savedLang);
+    if (savedTheme === "light" || savedTheme === "dark") setTheme(savedTheme);
+  }, []);
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    document.documentElement.dataset.theme = theme;
+    window.localStorage.setItem("ci-lang", lang);
+    window.localStorage.setItem("ci-theme", theme);
+  }, [lang, theme]);
 
   useEffect(() => {
     let isMounted = true;
@@ -391,21 +413,45 @@ export default function HomePage() {
     };
   }, []);
 
+  const toggleTheme = () => {
+    setTheme((current) => (current === "dark" ? "light" : "dark"));
+  };
+
+  const toggleLang = () => {
+    setLang((current) => (current === "ar" ? "en" : "ar"));
+  };
+
   return (
     <>
       <Loader />
       <Cursor />
-      <Navbar menuOpen={menuOpen} onToggleMenu={() => setMenuOpen((open) => !open)} />
-      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
-      <Hero />
-      <About />
-      <Services />
-      <Vision />
-      <Goals />
-      <Why />
-      <Clients />
-      <Contact />
-      <Footer />
+      <Navbar
+        t={t}
+        lang={lang}
+        theme={theme}
+        menuOpen={menuOpen}
+        onToggleMenu={() => setMenuOpen((open) => !open)}
+        onToggleTheme={toggleTheme}
+        onToggleLang={toggleLang}
+      />
+      <MobileMenu
+        t={t}
+        lang={lang}
+        theme={theme}
+        open={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        onToggleTheme={toggleTheme}
+        onToggleLang={toggleLang}
+      />
+      <Hero t={t.hero} />
+      <About t={t.about} />
+      <Services t={t.services} />
+      <Vision t={t.vision} />
+      <Goals t={t.goals} />
+      <Why t={t.why} />
+      <Clients t={t.clients} />
+      <Contact t={t.contact} />
+      <Footer t={t.footer} />
     </>
   );
 }

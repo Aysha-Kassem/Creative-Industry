@@ -1,24 +1,59 @@
-export default function MobileMenu({ open, onClose }) {
+export default function MobileMenu({
+  t,
+  lang,
+  theme,
+  open,
+  onClose,
+  onToggleTheme,
+  onToggleLang,
+}) {
+  const themeLabel = theme === "dark" ? t.actions.light : t.actions.dark;
+  const langLabel = lang === "ar" ? "EN" : "ع";
+
   return (
     <div className={`mobile-menu ${open ? "open" : ""}`} id="mobileMenu">
       <a href="#about" onClick={onClose}>
-        من نحن
+        {t.nav.about}
       </a>
       <a href="#services" onClick={onClose}>
-        خدماتنا
+        {t.nav.services}
       </a>
       <a href="#vision" onClick={onClose}>
-        رؤيتنا
+        {t.nav.vision}
       </a>
       <a href="#goals" onClick={onClose}>
-        أهدافنا
+        {t.nav.goals}
       </a>
       <a href="#clients" onClick={onClose}>
-        عملاؤنا
+        {t.nav.clients}
       </a>
       <a href="#contact" onClick={onClose}>
-        تواصل معنا
+        {t.nav.contact}
       </a>
+      <div className="mobile-actions">
+        <button
+          className="toggle-btn"
+          type="button"
+          onClick={() => {
+            onToggleTheme();
+          }}
+          aria-label={themeLabel}
+          title={themeLabel}
+        >
+          {theme === "dark" ? "☀️" : "🌙"}
+        </button>
+        <button
+          className="toggle-btn lang-btn"
+          type="button"
+          onClick={() => {
+            onToggleLang();
+          }}
+          aria-label={t.actions.language}
+          title={t.actions.language}
+        >
+          {langLabel}
+        </button>
+      </div>
     </div>
   );
 }

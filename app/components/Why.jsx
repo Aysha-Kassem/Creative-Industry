@@ -1,33 +1,18 @@
-export default function Why() {
+export default function Why({ t }) {
   return (
     <section id="why">
-      <div className="section-tag reveal">لماذا نحن؟</div>
+      <div className="section-tag reveal">{t.tag}</div>
       <h2 className="section-title reveal">
-        ما يميز <span>الصناعة الإبداعية</span>
+        {t.titleMain} <span>{t.titleHighlight}</span>
       </h2>
       <div className="why-grid">
-        <div className="why-card reveal">
-          <div className="why-icon">🇴🇲</div>
-          <div className="why-title">كوادر عمانية متخصصة</div>
-          <p className="why-text">
-            فريق عمل عماني متكامل ذو خبرة ومدرب على تنفيذ الأعمال في أقرب وقت ممكن
-          </p>
-        </div>
-        <div className="why-card reveal">
-          <div className="why-icon">⚡</div>
-          <div className="why-title">تنفيذ سريع ودقيق</div>
-          <p className="why-text">
-            معدات عالية الدقة والأمان قابلة للتطوير في أي لحظة دون البدء من جديد
-          </p>
-        </div>
-        <div className="why-card reveal">
-          <div className="why-icon">🌱</div>
-          <div className="why-title">دعم التنمية المستدامة</div>
-          <p className="why-text">
-            نساهم في تحقيق أهداف التنمية الاقتصادية بالسلطنة ورفع الميزان التجاري
-            العماني
-          </p>
-        </div>
+        {t.items.map((item) => (
+          <div className="why-card reveal" key={item.title}>
+            <div className="why-icon">{item.icon}</div>
+            <div className="why-title">{item.title}</div>
+            <p className="why-text">{item.text}</p>
+          </div>
+        ))}
       </div>
     </section>
   );

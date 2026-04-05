@@ -1,27 +1,19 @@
-export default function Clients() {
+export default function Clients({ t }) {
   return (
     <section id="clients">
       <div className="clients-header reveal">
-        <div className="section-tag">عملاؤنا</div>
+        <div className="section-tag">{t.tag}</div>
         <h2 className="section-title">
-          شركاء <span>النجاح</span>
+          {t.titleMain} <span>{t.titleHighlight}</span>
         </h2>
       </div>
       <div className="clients-track-wrapper">
         <div className="clients-track" id="clientsTrack">
-          <div className="client-logo">OMALEEN أومالين</div>
-          <div className="client-logo">SPIRIT HUB</div>
-          <div className="client-logo">FVPB</div>
-          <div className="client-logo">THAMAR ثمر</div>
-          <div className="client-logo">Tea Corner</div>
-          <div className="client-logo">Tea Time</div>
-          {/* Duplicate for infinite */}
-          <div className="client-logo">OMALEEN أومالين</div>
-          <div className="client-logo">SPIRIT HUB</div>
-          <div className="client-logo">FVPB</div>
-          <div className="client-logo">THAMAR ثمر</div>
-          <div className="client-logo">Tea Corner</div>
-          <div className="client-logo">Tea Time</div>
+          {[...t.logos, ...t.logos].map((logo, index) => (
+            <div className="client-logo" key={`${logo}-${index}`}>
+              {logo}
+            </div>
+          ))}
         </div>
       </div>
     </section>
