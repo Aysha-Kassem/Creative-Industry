@@ -50,6 +50,22 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
+}
+a[x-apple-data-detectors],
+a[href^="tel"],
+a[href^="mailto"] {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
 html[lang="en"] body {
   font-family: 'Montserrat', sans-serif;
 }
