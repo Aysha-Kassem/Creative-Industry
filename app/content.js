@@ -168,13 +168,12 @@ export const content = {
       tag: "عملاؤنا",
       titleMain: "شركاء",
       titleHighlight: "النجاح",
-      logos: [
-        "OMALEEN أومالين",
-        "SPIRIT HUB",
-        "FVPB",
-        "THAMAR ثمر",
-        "Tea Corner",
-        "Tea Time",
+      images: [
+        "شريك نجاح 1",
+        "شريك نجاح 2",
+        "شريك نجاح 3",
+        "شريك نجاح 4",
+        "شريك نجاح 5",
       ],
     },
     contact: {
@@ -377,13 +376,12 @@ export const content = {
       tag: "Clients",
       titleMain: "Partners in",
       titleHighlight: "Success",
-      logos: [
-        "OMALEEN أومالين",
-        "SPIRIT HUB",
-        "FVPB",
-        "THAMAR ثمر",
-        "Tea Corner",
-        "Tea Time",
+      images: [
+        "Success partner 1",
+        "Success partner 2",
+        "Success partner 3",
+        "Success partner 4",
+        "Success partner 5",
       ],
     },
     contact: {
