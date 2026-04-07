@@ -184,8 +184,8 @@ export const content = {
       desc: "نحن هنا لتحويل أفكارك الصناعية إلى واقع ملموس بأعلى معايير الجودة",
       details: [
         { icon: "📍", text: "سلطنة عُمان / مسقط" },
-        { icon: "📞", text: "+968 9983 6368 | +968 9513 6368", dir: "ltr" },
-        { icon: "✉️", text: "creativeindustry33@hotmail.com" },
+        { icon: "📞", text: "+968 9513 6368", dir: "ltr" },
+        { icon: "✉️", text: "info@creativesindustry" },
       ],
       form: {
         name: "الاسم الكامل",
@@ -393,8 +393,8 @@ export const content = {
       desc: "We’re here to turn your industrial ideas into a tangible reality with top quality.",
       details: [
         { icon: "📍", text: "Oman / Muscat" },
-        { icon: "📞", text: "+968 9983 6368 | +968 9513 6368", dir: "ltr" },
-        { icon: "✉️", text: "creativeindustry33@hotmail.com" },
+        { icon: "📞", text: "+968 9513 6368", dir: "ltr" },
+        { icon: "✉️", text: "info@creativesindustry" },
       ],
       form: {
         name: "Full Name",

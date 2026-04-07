@@ -1,5 +1,6 @@
 # dependencies
 node_modules/
+.codex/
 
 # next.js
 .next/
@@ -21,3 +22,5 @@ pnpm-debug.log*
 
 # misc
 *.tsbuildinfo
+
+.codex/

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import About from "./About";
 import Clients from "./Clients";
 import Contact from "./Contact";
@@ -24,10 +24,102 @@ const HERO_SELECTORS = [
   ".hero-scroll",
 ];
 
+const setStaticVisibility = () => {
+  if (typeof document === "undefined") return;
+  HERO_SELECTORS.forEach((selector) => {
+    document.querySelectorAll(selector).forEach((el) => {
+      el.style.opacity = "1";
+      el.style.transform = "none";
+    });
+  });
+  document.querySelectorAll(".reveal, .goal-item").forEach((el) => {
+    el.style.opacity = "1";
+    el.style.transform = "none";
+  });
+};
+
+const runGsapAnimations = (gsap, ScrollTrigger) => {
+  gsap.set(".hero-tag", { opacity: 0, y: 20 });
+  gsap.set(".hero-title", { opacity: 0, y: 30 });
+  gsap.set(".hero-subtitle", { opacity: 0, y: 30 });
+  gsap.set(".hero-btns", { opacity: 0, y: 20 });
+  gsap.set(".hero-scroll", { opacity: 0 });
+
+  gsap.to(".hero-tag", {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    delay: 0.2,
+    ease: "power3.out",
+  });
+  gsap.to(".hero-title", {
+    opacity: 1,
+    y: 0,
+    duration: 0.9,
+    delay: 0.45,
+    ease: "power3.out",
+  });
+  gsap.to(".hero-subtitle", {
+    opacity: 1,
+    y: 0,
+    duration: 0.9,
+    delay: 0.65,
+    ease: "power3.out",
+  });
+  gsap.to(".hero-btns", {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    delay: 0.85,
+    ease: "power3.out",
+  });
+  gsap.to(".hero-scroll", { opacity: 1, duration: 0.8, delay: 1.3 });
+
+  gsap.utils.toArray(".reveal").forEach((el, i) => {
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+        delay: (i % 3) * 0.1,
+      }
+    );
+  });
+
+  gsap.utils.toArray(".goal-item").forEach((el, i) => {
+    gsap.to(el, {
+      opacity: 1,
+      x: 0,
+      duration: 0.6,
+      ease: "power2.out",
+      delay: i * 0.1,
+      scrollTrigger: {
+        trigger: el,
+        start: "top 88%",
+        toggleActions: "play none none none",
+      },
+    });
+  });
+
+  ScrollTrigger.refresh();
+};
+
 export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [lang, setLang] = useState("ar");
   const [theme, setTheme] = useState("light");
+  const gsapRef = useRef(null);
+  const scrollTriggerRef = useRef(null);
+  const prefersReducedMotionRef = useRef(false);
+  const didMountRef = useRef(false);
 
   const t = useMemo(() => content[lang] || content.ar, [lang]);
 
@@ -60,19 +152,7 @@ export default function HomePage() {
     const prefersReducedMotion =
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    const setStaticVisibility = () => {
-      HERO_SELECTORS.forEach((selector) => {
-        document.querySelectorAll(selector).forEach((el) => {
-          el.style.opacity = "1";
-          el.style.transform = "none";
-        });
-      });
-      document.querySelectorAll(".reveal, .goal-item").forEach((el) => {
-        el.style.opacity = "1";
-        el.style.transform = "none";
-      });
-    };
+    prefersReducedMotionRef.current = prefersReducedMotion;
 
     const runLoader = () => {
       loaderTimeout = window.setTimeout(() => {
@@ -274,70 +354,9 @@ export default function HomePage() {
       const ScrollTrigger =
         scrollTriggerModule.ScrollTrigger || scrollTriggerModule.default;
       gsap.registerPlugin(ScrollTrigger);
-
-      gsap.to(".hero-tag", {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        delay: 0.2,
-        ease: "power3.out",
-      });
-      gsap.to(".hero-title", {
-        opacity: 1,
-        y: 0,
-        duration: 0.9,
-        delay: 0.45,
-        ease: "power3.out",
-      });
-      gsap.to(".hero-subtitle", {
-        opacity: 1,
-        y: 0,
-        duration: 0.9,
-        delay: 0.65,
-        ease: "power3.out",
-      });
-      gsap.to(".hero-btns", {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        delay: 0.85,
-        ease: "power3.out",
-      });
-      gsap.to(".hero-scroll", { opacity: 1, duration: 0.8, delay: 1.3 });
-
-      gsap.utils.toArray(".reveal").forEach((el, i) => {
-        gsap.fromTo(
-          el,
-          { opacity: 0, y: 50 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-            delay: (i % 3) * 0.1,
-          }
-        );
-      });
-
-      gsap.utils.toArray(".goal-item").forEach((el, i) => {
-        gsap.to(el, {
-          opacity: 1,
-          x: 0,
-          duration: 0.6,
-          ease: "power2.out",
-          delay: i * 0.1,
-          scrollTrigger: {
-            trigger: el,
-            start: "top 88%",
-            toggleActions: "play none none none",
-          },
-        });
-      });
+      gsapRef.current = gsap;
+      scrollTriggerRef.current = ScrollTrigger;
+      runGsapAnimations(gsap, ScrollTrigger);
     };
 
     const initCardTilt = () => {
@@ -412,6 +431,26 @@ export default function HomePage() {
       cleanupFns.forEach((fn) => fn());
     };
   }, []);
+
+  useEffect(() => {
+    if (!didMountRef.current) {
+      didMountRef.current = true;
+      return;
+    }
+    if (prefersReducedMotionRef.current) {
+      setStaticVisibility();
+      return;
+    }
+
+    const gsap = gsapRef.current;
+    const ScrollTrigger = scrollTriggerRef.current;
+    if (!gsap || !ScrollTrigger) {
+      setStaticVisibility();
+      return;
+    }
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    runGsapAnimations(gsap, ScrollTrigger);
+  }, [lang]);
 
   const toggleTheme = () => {
     setTheme((current) => (current === "dark" ? "light" : "dark"));
