@@ -453,10 +453,12 @@ export default function HomePage() {
   }, [lang]);
 
   const toggleTheme = () => {
+    setMenuOpen(false);
     setTheme((current) => (current === "dark" ? "light" : "dark"));
   };
 
   const toggleLang = () => {
+    setMenuOpen(false);
     setLang((current) => (current === "ar" ? "en" : "ar"));
   };
 
