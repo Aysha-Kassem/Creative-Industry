@@ -151,7 +151,7 @@ export const content = {
       details: [
         { icon: "📍", text: "سلطنة عُمان / مسقط" },
         { icon: "📞", text: "+968 9513 6368", dir: "ltr" },
-        { icon: "✉️", text: "info@creativesindustry" },
+        { icon: "✉️", text: "creativeindustry33@hotmail.com" },
       ],
       form: {
         name: "الاسم الكامل",
@@ -327,7 +327,7 @@ export const content = {
       details: [
         { icon: "📍", text: "Oman / Muscat" },
         { icon: "📞", text: "+968 9513 6368", dir: "ltr" },
-        { icon: "✉️", text: "info@creativesindustry" },
+        { icon: "✉️", text: "creativeindustry33@hotmail.com" },
       ],
       form: {
         name: "Full Name",

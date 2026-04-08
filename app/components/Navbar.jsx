@@ -1,3 +1,6 @@
+import Image from "next/image";
+import logo from "../../assets/Logo.jpeg";
+
 export default function Navbar({
   t,
   lang,
@@ -14,7 +17,16 @@ export default function Navbar({
   return (
     <nav id="navbar">
       <div className="nav-logo">
-        <div className="nav-logo-icon">{t.brand?.short || "CI"}</div>
+        <div className="nav-logo-icon">
+          <Image
+            src={logo}
+            alt={`${t.brand?.name || "Creative Industry"} logo`}
+            className="nav-logo-img"
+            fill
+            sizes="38px"
+            priority
+          />
+        </div>
         <div className="nav-logo-text">{t.brand?.name}</div>
       </div>
       <div className="nav-right">
