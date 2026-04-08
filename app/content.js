@@ -6,7 +6,7 @@ export const content = {
     },
     nav: {
       about: "من نحن",
-      services: "خدماتنا",
+      products: "منتجاتنا",
       vision: "رؤيتنا",
       goals: "أهدافنا",
       clients: "عملاؤنا",
@@ -27,7 +27,7 @@ export const content = {
       titleHighlight: "الإبداعية",
       subtitle:
         "مصنع عماني متخصص في توفير خطوط الإنتاج الصناعية والمنتجات البلاستيكية بأعلى معايير الجودة العالمية",
-      primary: "اكتشف خدماتنا",
+      primary: "اكتشف منتجاتنا",
       secondary: "تواصل معنا",
       scroll: "مرر",
     },
@@ -66,49 +66,16 @@ export const content = {
         },
       ],
     },
-    services: {
-      tag: "خدماتنا",
-      titleMain: "ما نقدمه",
-      titleHighlight: "لك",
-      desc:
-        "نقدم حلولاً صناعية احترافية تسهّل الأداء على المصانع والعلامات التجارية",
+    products: {
+      tag: "منتجاتنا",
+      titleMain: "حلول",
+      titleHighlight: "التغليف",
+      desc: "منتجات صناعية عالية الجودة لتثبيت وربط وتغليف الشحنات بكفاءة.",
       items: [
-        {
-          num: "01",
-          icon: "🏗️",
-          title: "الصناعة البلاستيكية",
-          text: "تصنيع الأغطية والعلب ومواد التغليف المختلفة بأعلى مستويات الجودة والدقة",
-        },
-        {
-          num: "02",
-          icon: "🔧",
-          title: "خطوط الإنتاج",
-          text: "توفير وتشغيل خطوط الإنتاج الصناعية المتكاملة بأحدث المعدات العالمية",
-        },
-        {
-          num: "03",
-          icon: "🎨",
-          title: "تصميم المنتجات",
-          text: "تطوير وتصميم المنتجات البلاستيكية باستخدام أفضل التقنيات الصناعية الحديثة",
-        },
-        {
-          num: "04",
-          icon: "📦",
-          title: "الهوية التجارية",
-          text: "إنتاج منتجات تحمل هويتك التجارية بمعدات عالية الدقة وبأساليب خاصة ومميزة",
-        },
-        {
-          num: "05",
-          icon: "💡",
-          title: "الاستشارات الصناعية",
-          text: "خدمات استشارية متخصصة تساهم في تطوير القطاع الصناعي وتحفيز الإبداع",
-        },
-        {
-          num: "06",
-          icon: "🚀",
-          title: "إدارة المصانع",
-          text: "إدارة وتشغيل المصانع على أرض الواقع بأفضل الأساليب التشغيلية والتقنيات",
-        },
+        { slug: "pp-strap", name: "PP strap" },
+        { slug: "ring-holder", name: "Ring holder" },
+        { slug: "core-plug", name: "Core plug" },
+        { slug: "pp-strap-clip", name: "مشبك ربط شريط PP" },
       ],
     },
     vision: {
@@ -215,7 +182,7 @@ export const content = {
     },
     nav: {
       about: "About Us",
-      services: "Services",
+      products: "Products",
       vision: "Vision",
       goals: "Goals",
       clients: "Clients",
@@ -236,7 +203,7 @@ export const content = {
       titleHighlight: "Industry",
       subtitle:
         "An Omani factory specialized in production lines and plastic products with the highest global quality standards",
-      primary: "Explore Services",
+      primary: "Explore Products",
       secondary: "Contact Us",
       scroll: "scroll",
     },
@@ -275,48 +242,16 @@ export const content = {
         },
       ],
     },
-    services: {
-      tag: "Services",
-      titleMain: "What We Offer",
-      titleHighlight: "You",
-      desc: "We deliver professional industrial solutions that simplify operations for factories and brands.",
+    products: {
+      tag: "Products",
+      titleMain: "Packaging",
+      titleHighlight: "Solutions",
+      desc: "High-quality industrial products for securing, strapping, and packing cargo.",
       items: [
-        {
-          num: "01",
-          icon: "🏗️",
-          title: "Plastic Manufacturing",
-          text: "Manufacturing caps, containers, and packaging materials with top-tier quality and precision",
-        },
-        {
-          num: "02",
-          icon: "🔧",
-          title: "Production Lines",
-          text: "Supplying and operating integrated industrial production lines with world-class equipment",
-        },
-        {
-          num: "03",
-          icon: "🎨",
-          title: "Product Design",
-          text: "Designing and developing plastic products using advanced industrial technologies",
-        },
-        {
-          num: "04",
-          icon: "📦",
-          title: "Brand Identity",
-          text: "Producing branded products with high-precision equipment and distinctive methods",
-        },
-        {
-          num: "05",
-          icon: "💡",
-          title: "Industrial Consulting",
-          text: "Specialized consulting to develop the industrial sector and spark innovation",
-        },
-        {
-          num: "06",
-          icon: "🚀",
-          title: "Factory Management",
-          text: "Operating and managing factories with best practices and technologies",
-        },
+        { slug: "pp-strap", name: "PP strap" },
+        { slug: "ring-holder", name: "Ring holder" },
+        { slug: "core-plug", name: "Core plug" },
+        { slug: "pp-strap-clip", name: "PP Strap Clip" },
       ],
     },
     vision: {

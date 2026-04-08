@@ -2,6 +2,7 @@ export default function MobileMenu({
   t,
   lang,
   theme,
+  basePath = "",
   open,
   onClose,
   onToggleTheme,
@@ -12,22 +13,22 @@ export default function MobileMenu({
 
   return (
     <div className={`mobile-menu ${open ? "open" : ""}`} id="mobileMenu">
-      <a href="#about" onClick={onClose}>
+      <a href={`${basePath}#about`} onClick={onClose}>
         {t.nav.about}
       </a>
-      <a href="#services" onClick={onClose}>
-        {t.nav.services}
+      <a href={`${basePath}#products`} onClick={onClose}>
+        {t.nav.products}
       </a>
-      <a href="#vision" onClick={onClose}>
+      <a href={`${basePath}#vision`} onClick={onClose}>
         {t.nav.vision}
       </a>
-      <a href="#goals" onClick={onClose}>
+      <a href={`${basePath}#goals`} onClick={onClose}>
         {t.nav.goals}
       </a>
-      <a href="#clients" onClick={onClose}>
+      <a href={`${basePath}#clients`} onClick={onClose}>
         {t.nav.clients}
       </a>
-      <a href="#contact" onClick={onClose}>
+      <a href={`${basePath}#contact`} onClick={onClose}>
         {t.nav.contact}
       </a>
       <div className="mobile-actions">

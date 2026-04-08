@@ -11,7 +11,7 @@ export default function Hero({ t }) {
         </h1>
         <p className="hero-subtitle">{t.subtitle}</p>
         <div className="hero-btns">
-          <a href="#services" className="btn-primary">
+          <a href="#products" className="btn-primary">
             {t.primary}
           </a>
           <a href="#contact" className="btn-outline">

@@ -2,6 +2,7 @@ export default function Navbar({
   t,
   lang,
   theme,
+  basePath = "",
   menuOpen,
   onToggleMenu,
   onToggleTheme,
@@ -19,22 +20,22 @@ export default function Navbar({
       <div className="nav-right">
         <ul className="nav-links">
           <li>
-            <a href="#about">{t.nav.about}</a>
+            <a href={`${basePath}#about`}>{t.nav.about}</a>
           </li>
           <li>
-            <a href="#services">{t.nav.services}</a>
+            <a href={`${basePath}#products`}>{t.nav.products}</a>
           </li>
           <li>
-            <a href="#vision">{t.nav.vision}</a>
+            <a href={`${basePath}#vision`}>{t.nav.vision}</a>
           </li>
           <li>
-            <a href="#goals">{t.nav.goals}</a>
+            <a href={`${basePath}#goals`}>{t.nav.goals}</a>
           </li>
           <li>
-            <a href="#clients">{t.nav.clients}</a>
+            <a href={`${basePath}#clients`}>{t.nav.clients}</a>
           </li>
           <li>
-            <a href="#contact">{t.nav.contact}</a>
+            <a href={`${basePath}#contact`}>{t.nav.contact}</a>
           </li>
         </ul>
         <div className="nav-actions">
@@ -57,7 +58,7 @@ export default function Navbar({
             {langLabel}
           </button>
         </div>
-        <a href="#contact" className="nav-cta">
+        <a href={`${basePath}#contact`} className="nav-cta">
           {t.nav.cta}
         </a>
         <button

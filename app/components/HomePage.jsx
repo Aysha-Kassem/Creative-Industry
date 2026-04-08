@@ -5,13 +5,14 @@ import About from "./About";
 import Clients from "./Clients";
 import Contact from "./Contact";
 import Cursor from "./Cursor";
+import CursorBlob from "./CursorBlob";
 import Footer from "./Footer";
 import Goals from "./Goals";
 import Hero from "./Hero";
 import Loader from "./Loader";
 import MobileMenu from "./MobileMenu";
 import Navbar from "./Navbar";
-import Services from "./Services";
+import Products from "./Products";
 import Vision from "./Vision";
 import Why from "./Why";
 import { content } from "../content";
@@ -116,6 +117,7 @@ export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [lang, setLang] = useState("ar");
   const [theme, setTheme] = useState("light");
+  const [prefsLoaded, setPrefsLoaded] = useState(false);
   const gsapRef = useRef(null);
   const scrollTriggerRef = useRef(null);
   const prefersReducedMotionRef = useRef(false);
@@ -127,8 +129,19 @@ export default function HomePage() {
     if (typeof window === "undefined") return;
     const savedLang = window.localStorage.getItem("ci-lang");
     const savedTheme = window.localStorage.getItem("ci-theme");
-    if (savedLang === "ar" || savedLang === "en") setLang(savedLang);
+    let nextLang = "ar";
+    if (savedLang === "ar" || savedLang === "en") {
+      nextLang = savedLang;
+    } else {
+      const deviceLang =
+        (navigator.languages && navigator.languages[0]) ||
+        navigator.language ||
+        "ar";
+      nextLang = deviceLang.toLowerCase().startsWith("ar") ? "ar" : "en";
+    }
+    setLang(nextLang);
     if (savedTheme === "light" || savedTheme === "dark") setTheme(savedTheme);
+    setPrefsLoaded(true);
   }, []);
 
   useEffect(() => {
@@ -136,9 +149,10 @@ export default function HomePage() {
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
     document.documentElement.dataset.theme = theme;
+    if (!prefsLoaded) return;
     window.localStorage.setItem("ci-lang", lang);
     window.localStorage.setItem("ci-theme", theme);
-  }, [lang, theme]);
+  }, [lang, theme, prefsLoaded]);
 
   useEffect(() => {
     let isMounted = true;
@@ -382,26 +396,6 @@ export default function HomePage() {
       cleanupFns.push(() => card3d.removeEventListener("mouseleave", onLeave));
     };
 
-    const initServiceTilt = () => {
-      if (prefersReducedMotion) return;
-      const serviceCards = Array.from(document.querySelectorAll(".service-card"));
-      serviceCards.forEach((card) => {
-        const onMove = (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = (e.clientX - rect.left) / rect.width - 0.5;
-          const y = (e.clientY - rect.top) / rect.height - 0.5;
-          card.style.transform = `translateY(-8px) rotateX(${-y * 8}deg) rotateY(${x * 8}deg)`;
-        };
-        const onLeave = () => {
-          card.style.transform = "";
-        };
-        card.addEventListener("mousemove", onMove);
-        card.addEventListener("mouseleave", onLeave);
-        cleanupFns.push(() => card.removeEventListener("mousemove", onMove));
-        cleanupFns.push(() => card.removeEventListener("mouseleave", onLeave));
-      });
-    };
-
     const initNavScroll = () => {
       const onScroll = () => {
         const navbar = document.getElementById("navbar");
@@ -417,7 +411,6 @@ export default function HomePage() {
       initCursor();
       initNavScroll();
       initCardTilt();
-      initServiceTilt();
       await initThree();
     };
 
@@ -465,6 +458,7 @@ export default function HomePage() {
   return (
     <>
       <Loader />
+      <CursorBlob />
       <Cursor />
       <Navbar
         t={t}
@@ -486,7 +480,7 @@ export default function HomePage() {
       />
       <Hero t={t.hero} />
       <About t={t.about} />
-      <Services t={t.services} />
+      <Products t={t.products} lang={lang} />
       <Vision t={t.vision} />
       <Goals t={t.goals} />
       <Why t={t.why} />
