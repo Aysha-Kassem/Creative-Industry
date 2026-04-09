@@ -181,18 +181,9 @@ export const content = {
           ],
         },
         {
-          icon: "📞",
-          text: "+968 9983 6368",
-          dir: "ltr",
-          actions: [
-            { type: "call", href: "tel:+96899836368" },
-            { type: "whatsapp", href: "https://wa.me/96899836368" },
-          ],
-        },
-        {
           icon: "✉️",
-          text: "creativeindustry33@hotmail.com",
-          href: "mailto:creativeindustry33@hotmail.com",
+          text: "info@creativesindustry",
+          href: "mailto:info@creativesindustry",
         },
       ],
       form: {
@@ -406,18 +397,9 @@ export const content = {
           ],
         },
         {
-          icon: "📞",
-          text: "+968 9983 6368",
-          dir: "ltr",
-          actions: [
-            { type: "call", href: "tel:+96899836368" },
-            { type: "whatsapp", href: "https://wa.me/96899836368" },
-          ],
-        },
-        {
           icon: "✉️",
-          text: "creativeindustry33@hotmail.com",
-          href: "mailto:creativeindustry33@hotmail.com",
+          text: "info@creativesindustry",
+          href: "mailto:info@creativesindustry",
         },
       ],
       form: {
