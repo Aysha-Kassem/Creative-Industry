@@ -35,6 +35,9 @@ export default function Navbar({
             <a href={`${basePath}#about`}>{t.nav.about}</a>
           </li>
           <li>
+            <a href={`${basePath}#services`}>{t.nav.services}</a>
+          </li>
+          <li>
             <a href={`${basePath}#products`}>{t.nav.products}</a>
           </li>
           <li>

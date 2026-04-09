@@ -16,6 +16,9 @@ export default function MobileMenu({
       <a href={`${basePath}#about`} onClick={onClose}>
         {t.nav.about}
       </a>
+      <a href={`${basePath}#services`} onClick={onClose}>
+        {t.nav.services}
+      </a>
       <a href={`${basePath}#products`} onClick={onClose}>
         {t.nav.products}
       </a>

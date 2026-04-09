@@ -13,6 +13,7 @@ import Loader from "./Loader";
 import MobileMenu from "./MobileMenu";
 import Navbar from "./Navbar";
 import Products from "./Products";
+import Services from "./Services";
 import Vision from "./Vision";
 import Why from "./Why";
 import { content } from "../content";
@@ -480,6 +481,7 @@ export default function HomePage() {
       />
       <Hero t={t.hero} />
       <About t={t.about} />
+      <Services t={t.services} />
       <Products t={t.products} lang={lang} />
       <Vision t={t.vision} />
       <Goals t={t.goals} />

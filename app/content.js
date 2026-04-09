@@ -6,6 +6,7 @@ export const content = {
     },
     nav: {
       about: "من نحن",
+      services: "خدماتنا",
       products: "منتجاتنا",
       vision: "رؤيتنا",
       goals: "أهدافنا",
@@ -37,7 +38,7 @@ export const content = {
       titleHighlight: "عمانية",
       titleRest: "بكوادر متميزة",
       desc:
-        "الصناعة الإبداعية شركة بإدارة عمانية وكادر مميز من مهندسين عمانيين ذوي خبرة أكثر من عشر سنوات. جاءت لتلائم الخطط الاستراتيجية الصناعية في السلطنة، وتساهم في وصولها إلى مصاف الدول المتقدمة.",
+        "الصناعة الإبداعية شركة بإدارة عمانية وكادر مميز من مهندسين عمانيين ذوي خبرة أكثر من عشر سنوات. جاءت فكرة الشركة لتلائم الخطط الاستراتيجية الصناعية في السلطنة، لتساهم في وصولها إلى مصاف الدول المتقدمة وتحفّز التقدم في الصناعات التحويلية الوطنية. نحن مصنع مختص في توفير خطوط الإنتاج الصناعية مع توفير المنتجات البلاستيكية للعلامات التجارية، ونساهم في تحقيق أهداف التنمية الاقتصادية عبر تلبية احتياجات السوق المحلي والمصانع الوطنية مع السعي للتوسع إقليميًا وعالميًا.",
       stats: [
         { value: "+10", label: "سنوات خبرة" },
         { value: "100%", label: "كوادر عمانية" },
@@ -76,6 +77,26 @@ export const content = {
         { slug: "ring-holder", name: "Ring holder" },
         { slug: "core-plug", name: "Core plug" },
         { slug: "pp-strap-clip", name: "مشبك ربط شريط PP" },
+      ],
+    },
+    services: {
+      tag: "خدماتنا",
+      titleMain: "خدمات",
+      titleHighlight: "التصنيع",
+      desc: "نقدّم خدمات التصنيع والصناعة البلاستيكية للعلامات التجارية والمصانع.",
+      items: [
+        {
+          num: "01",
+          icon: "🏭",
+          title: "التصنيع",
+          text: "حلول تصنيع صناعية وتوفير خطوط الإنتاج.",
+        },
+        {
+          num: "02",
+          icon: "🧴",
+          title: "الصناعة البلاستيكية",
+          text: "مثل الأغطية والعلب ومواد التغليف.",
+        },
       ],
     },
     vision: {
@@ -150,8 +171,29 @@ export const content = {
       desc: "نحن هنا لتحويل أفكارك الصناعية إلى واقع ملموس بأعلى معايير الجودة",
       details: [
         { icon: "📍", text: "سلطنة عُمان / مسقط" },
-        { icon: "📞", text: "+968 9513 6368", dir: "ltr" },
-        { icon: "✉️", text: "creativeindustry33@hotmail.com" },
+        {
+          icon: "📞",
+          text: "+968 9513 6368",
+          dir: "ltr",
+          actions: [
+            { type: "call", href: "tel:+96895136368" },
+            { type: "whatsapp", href: "https://wa.me/96895136368" },
+          ],
+        },
+        {
+          icon: "📞",
+          text: "+968 9983 6368",
+          dir: "ltr",
+          actions: [
+            { type: "call", href: "tel:+96899836368" },
+            { type: "whatsapp", href: "https://wa.me/96899836368" },
+          ],
+        },
+        {
+          icon: "✉️",
+          text: "creativeindustry33@hotmail.com",
+          href: "mailto:creativeindustry33@hotmail.com",
+        },
       ],
       form: {
         name: "الاسم الكامل",
@@ -163,6 +205,13 @@ export const content = {
         message: "رسالتك",
         messagePlaceholder: "اكتب رسالتك هنا...",
         submit: "إرسال الرسالة ✦",
+        sending: "جاري الإرسال...",
+        success: "تم إرسال الرسالة بنجاح.",
+        error: "حدث خطأ، حاول مرة أخرى.",
+        required: "هذا الحقل مطلوب.",
+        invalidEmail: "يرجى إدخال بريد إلكتروني صحيح.",
+        emailNotValid: "هذا البريد غير موجود أو غير مُفعل.",
+        invalidPhone: "يرجى إدخال رقم هاتف صحيح.",
       },
     },
     footer: {
@@ -182,6 +231,7 @@ export const content = {
     },
     nav: {
       about: "About Us",
+      services: "Services",
       products: "Products",
       vision: "Vision",
       goals: "Goals",
@@ -213,7 +263,7 @@ export const content = {
       titleHighlight: "Omani",
       titleRest: "company with outstanding talent",
       desc:
-        "Creative Industry is an Omani-managed company with a distinguished team of Omani engineers with over ten years of experience. It aligns with the Sultanate's industrial strategy and supports its progress toward global leadership.",
+        "Creative Industry is an Omani-managed company with a distinguished team of Omani engineers with over ten years of experience. The company was established to align with the Sultanate's industrial strategy, supporting its advancement and the growth of national manufacturing industries. We are a factory specialized in providing industrial production lines along with plastic products for brands, serving the local market and national factories while expanding regionally and globally.",
       stats: [
         { value: "+10", label: "Years Experience" },
         { value: "100%", label: "Omani Team" },
@@ -244,14 +294,34 @@ export const content = {
     },
     products: {
       tag: "Products",
-      titleMain: "Packaging",
-      titleHighlight: "Solutions",
+      titleMain: "Industrial",
+      titleHighlight: "Products",
       desc: "High-quality industrial products for securing, strapping, and packing cargo.",
       items: [
         { slug: "pp-strap", name: "PP strap" },
         { slug: "ring-holder", name: "Ring holder" },
         { slug: "core-plug", name: "Core plug" },
         { slug: "pp-strap-clip", name: "PP Strap Clip" },
+      ],
+    },
+    services: {
+      tag: "Our Services",
+      titleMain: "Industrial",
+      titleHighlight: "Services",
+      desc: "Manufacturing and plastic industry solutions for factories and brands.",
+      items: [
+        {
+          num: "01",
+          icon: "🏭",
+          title: "Manufacturing",
+          text: "Industrial manufacturing and production-line solutions.",
+        },
+        {
+          num: "02",
+          icon: "🧴",
+          title: "Plastic Industry",
+          text: "Such as covers, cans, and packaging materials.",
+        },
       ],
     },
     vision: {
@@ -326,8 +396,29 @@ export const content = {
       desc: "We’re here to turn your industrial ideas into a tangible reality with top quality.",
       details: [
         { icon: "📍", text: "Oman / Muscat" },
-        { icon: "📞", text: "+968 9513 6368", dir: "ltr" },
-        { icon: "✉️", text: "creativeindustry33@hotmail.com" },
+        {
+          icon: "📞",
+          text: "+968 9513 6368",
+          dir: "ltr",
+          actions: [
+            { type: "call", href: "tel:+96895136368" },
+            { type: "whatsapp", href: "https://wa.me/96895136368" },
+          ],
+        },
+        {
+          icon: "📞",
+          text: "+968 9983 6368",
+          dir: "ltr",
+          actions: [
+            { type: "call", href: "tel:+96899836368" },
+            { type: "whatsapp", href: "https://wa.me/96899836368" },
+          ],
+        },
+        {
+          icon: "✉️",
+          text: "creativeindustry33@hotmail.com",
+          href: "mailto:creativeindustry33@hotmail.com",
+        },
       ],
       form: {
         name: "Full Name",
@@ -339,6 +430,13 @@ export const content = {
         message: "Your Message",
         messagePlaceholder: "Write your message here...",
         submit: "Send Message ✦",
+        sending: "Sending...",
+        success: "Message sent successfully.",
+        error: "Something went wrong. Please try again.",
+        required: "This field is required.",
+        invalidEmail: "Please enter a valid email.",
+        emailNotValid: "This email does not exist or is not active.",
+        invalidPhone: "Please enter a valid phone number.",
       },
     },
     footer: {
