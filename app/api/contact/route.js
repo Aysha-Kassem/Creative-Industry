@@ -40,19 +40,21 @@ const hasMxRecords = async (email) => {
   }
 };
 
-const validateWithZeroBounce = async (email) => {
-  const apiKey = process.env.ZEROBOUNCE_API_KEY;
+const validateWithNeverBounce = async (email) => {
+  const apiKey = process.env.NEVERBOUNCE_API_KEY;
   if (!apiKey) return { status: "skipped" };
   const apiUrl =
-    process.env.ZEROBOUNCE_API_URL || "https://api.zerobounce.net/v2/validate";
+    process.env.NEVERBOUNCE_API_URL ||
+    "https://api.neverbounce.com/v4/single/check";
   const url = new URL(apiUrl);
-  url.searchParams.set("api_key", apiKey);
+  url.searchParams.set("key", apiKey);
   url.searchParams.set("email", email);
   try {
     const response = await fetch(url.toString(), { method: "GET" });
     if (!response.ok) return { status: "error" };
     const data = await response.json();
-    return { status: data.status || "unknown", data };
+    if (data.status !== "success") return { status: "error", data };
+    return { status: data.result || "unknown", data };
   } catch (error) {
     return { status: "error" };
   }
@@ -77,12 +79,15 @@ export async function POST(request) {
       );
     }
 
-    const zbResult = await validateWithZeroBounce(data.email);
-    if (zbResult.status !== "skipped" && zbResult.status !== "valid") {
-      return NextResponse.json(
-        { ok: false, code: "email_not_valid", errors: { email: "not_valid" } },
-        { status: 400 }
-      );
+    const nbResult = await validateWithNeverBounce(data.email);
+    if (nbResult.status !== "skipped") {
+      const allowed = new Set(["valid", "catchall", "unknown"]);
+      if (!allowed.has(nbResult.status)) {
+        return NextResponse.json(
+          { ok: false, code: "email_not_valid", errors: { email: "not_valid" } },
+          { status: 400 }
+        );
+      }
     }
 
     const host = process.env.SMTP_HOST;
