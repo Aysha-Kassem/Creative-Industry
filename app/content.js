@@ -162,6 +162,8 @@ export const content = {
         "شريك نجاح 3",
         "شريك نجاح 4",
         "شريك نجاح 5",
+        "شريك نجاح 6",
+        "شريك نجاح 7",
       ],
     },
     contact: {
@@ -378,6 +380,8 @@ export const content = {
         "Success partner 3",
         "Success partner 4",
         "Success partner 5",
+        "Success partner 6",
+        "Success partner 7",
       ],
     },
     contact: {

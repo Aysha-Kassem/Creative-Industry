@@ -4,6 +4,8 @@ import corePlugImg from "../../assets/Services/Core plug.JPG";
 import ppStrapClipImg from "../../assets/Services/PP Strap Clip.JPG";
 import petStrapImg from "../../assets/Services/PET strap.JPG";
 import stretchFilmImg from "../../assets/Services/Stretch film.JPG";
+import strappingToolSetImg from "../../assets/Services/Strapping Tool Set.JPG";
+import strapSealingMachineImg from "../../assets/Services/Strap Sealing Machine.JPG";
 
 export const products = [
   {
@@ -288,6 +290,114 @@ export const products = [
           "Construction materials",
           "Agricultural products",
           "Shipments and products intended for storage and transport",
+        ],
+      },
+    },
+  },
+  {
+    slug: "strapping-tool-set",
+    image: strappingToolSetImg,
+    name: {
+      ar: "طقم أدوات ربط يدوي لشريط PP & PET",
+      en: "Manual PP & PET Strapping Tool Set",
+    },
+    summary: {
+      ar: "أدوات يدوية متينة لشد وتثبيت شرائط PP وPET، مناسبة للكراتين والبالتات والمنتجات الصناعية.",
+      en: "Durable manual tools for tensioning and sealing PP & PET straps, ideal for cartons, pallets, and industrial products.",
+    },
+    details: {
+      ar: {
+        description:
+          "أدوات يدوية متينة مصممة لشد وتثبيت شرائط PP وPET، مثالية لتأمين الكراتين والبالتات والمنتجات الصناعية أثناء التخزين والنقل والشحن.",
+        featuresTitle: "المميزات",
+        features: [
+          "مناسبة لشرائط PP وPET",
+          "تعمل يدويًا بدون الحاجة لكهرباء",
+          "تصنيع معدني قوي ومتين",
+          "سهلة الاستخدام والتشغيل",
+          "توفر تغليفًا آمنًا وموثوقًا",
+          "مناسبة للمصانع والمخازن وعمليات الخدمات اللوجستية",
+        ],
+        usesTitle: "محتويات الطقم",
+        uses: ["أداة شد الشريط (Strapping Tensioner)", "أداة تثبيت الشريط (Strapping Sealer)"],
+      },
+      en: {
+        description:
+          "Durable manual tools designed for tensioning and sealing PP & PET straps. Ideal for securing cartons, pallets, and industrial products during storage, transportation, and shipping.",
+        featuresTitle: "Features",
+        features: [
+          "Suitable for PP & PET straps",
+          "Manual operation, no electricity required",
+          "Strong and durable metal construction",
+          "Easy to use and handle",
+          "Provides secure and reliable packaging",
+          "Suitable for factories, warehouses, and logistics operations",
+        ],
+        usesTitle: "Set Includes",
+        uses: ["Strapping Tensioner", "Strapping Sealer"],
+      },
+    },
+  },
+  {
+    slug: "strap-sealing-machine",
+    image: strapSealingMachineImg,
+    name: {
+      ar: "ماكينة لحام يدوية لشريط PET/PP",
+      en: "Manual PET/PP Strap Sealing Machine",
+    },
+    summary: {
+      ar: "ماكينة لحام يدوية عملية لتثبيت شرائط PET/PP بسرعة وقوة على الكراتين والأحمال الصناعية.",
+      en: "Practical manual sealing machine for fast, strong PET/PP strap sealing on cartons and industrial loads.",
+    },
+    details: {
+      ar: {
+        description:
+          "ماكينة لحام شريط PET اليدوية هي حل عملي وفعال لتثبيت وربط المنتجات والكراتين باستخدام شريط التغليف البلاستيكي. سهلة التشغيل وتوفر لحامًا سريعًا وقويًا، مما يجعلها مناسبة لمختلف تطبيقات التغليف.",
+        description2:
+          "نوفر الماكينة بمواصفات ومقاسات مختلفة تناسب أنواع وأحجام الشرائط المتعددة، مع حلول تغليف مناسبة حسب متطلبات كل تطبيق.",
+        featuresTitle: "المميزات",
+        features: [
+          "مناسبة لشريط PET وشريط PP حسب الموديل",
+          "لحام قوي وآمن للشريط",
+          "تصميم عملي وسهولة في التشغيل",
+          "مناسبة للمصانع والمخازن وخطوط التعبئة والتغليف",
+          "تساعد على تقليل وقت وجهد التغليف",
+          "خفيفة الوزن وسهلة النقل والاستخدام في أماكن عمل مختلفة",
+          "متوفرة بمقاسات ومواصفات مختلفة لتلبية متطلبات العملاء",
+        ],
+        usesTitle: "الاستخدامات",
+        uses: [
+          "الكراتين",
+          "البالات",
+          "المنتجات الصناعية",
+          "مواد البناء",
+          "المنتجات الغذائية",
+          "مختلف الأحمال التي تحتاج لتثبيت آمن وموثوق أثناء التخزين أو النقل",
+        ],
+      },
+      en: {
+        description:
+          "The Manual PET Strap Sealing Machine is a practical and efficient solution for securing and bundling products and cartons using plastic strapping. It is easy to operate and provides fast and strong sealing, making it suitable for various packaging applications.",
+        description2:
+          "We provide the machine in different specifications and sizes to suit various strap types and sizes, with suitable packaging solutions based on the application requirements.",
+        featuresTitle: "Features",
+        features: [
+          "Suitable for PET Strap and PP Strap, depending on the model",
+          "Strong and secure strap sealing",
+          "Practical design and easy operation",
+          "Suitable for factories, warehouses, and packaging lines",
+          "Helps reduce packaging time and effort",
+          "Lightweight and easy to move and use in different work areas",
+          "Available in different sizes and specifications to meet customer requirements",
+        ],
+        usesTitle: "Applications",
+        uses: [
+          "Cartons",
+          "Bales",
+          "Industrial products",
+          "Building materials",
+          "Food products",
+          "Various loads requiring safe and reliable fastening during storage or transport",
         ],
       },
     },
