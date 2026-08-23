@@ -51,12 +51,12 @@ const validateWithNeverBounce = async (email) => {
   url.searchParams.set("email", email);
   try {
     const response = await fetch(url.toString(), { method: "GET" });
-    if (!response.ok) return { status: "error" };
+    if (!response.ok) return { status: "skipped" };
     const data = await response.json();
-    if (data.status !== "success") return { status: "error", data };
+    if (data.status !== "success") return { status: "skipped", data };
     return { status: data.result || "unknown", data };
   } catch (error) {
-    return { status: "error" };
+    return { status: "skipped" };
   }
 };
 
