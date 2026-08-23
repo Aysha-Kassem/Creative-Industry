@@ -184,8 +184,8 @@ export const content = {
         },
         {
           icon: "✉️",
-          text: "info@creativesindustry",
-          href: "mailto:info@creativesindustry",
+          text: "info@creativesindustry.com",
+          href: "mailto:info@creativesindustry.com",
         },
       ],
       form: {
@@ -402,8 +402,8 @@ export const content = {
         },
         {
           icon: "✉️",
-          text: "info@creativesindustry",
-          href: "mailto:info@creativesindustry",
+          text: "info@creativesindustry.com",
+          href: "mailto:info@creativesindustry.com",
         },
       ],
       form: {
