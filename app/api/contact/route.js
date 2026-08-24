@@ -46,10 +46,10 @@ const validateWithNeverBounce = async (email) => {
   const apiUrl =
     process.env.NEVERBOUNCE_API_URL ||
     "https://api.neverbounce.com/v4/single/check";
-  const url = new URL(apiUrl);
-  url.searchParams.set("key", apiKey);
-  url.searchParams.set("email", email);
   try {
+    const url = new URL(apiUrl);
+    url.searchParams.set("key", apiKey);
+    url.searchParams.set("email", email);
     const response = await fetch(url.toString(), { method: "GET" });
     if (!response.ok) return { status: "skipped" };
     const data = await response.json();
