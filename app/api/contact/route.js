@@ -99,6 +99,12 @@ export async function POST(request) {
       process.env.SMTP_TO || "creativeindustry33@hotmail.com";
 
     if (!host || !user || !pass || !from) {
+      console.error("[/api/contact] email_service_config: missing SMTP env vars", {
+        hasHost: Boolean(host),
+        hasUser: Boolean(user),
+        hasPass: Boolean(pass),
+        hasFrom: Boolean(from),
+      });
       return NextResponse.json(
         { ok: false, code: "email_service_config" },
         { status: 500 }
@@ -130,6 +136,7 @@ export async function POST(request) {
 
     return NextResponse.json({ ok: true });
   } catch (error) {
+    console.error("[/api/contact] server_error:", error);
     return NextResponse.json(
       { ok: false, code: "server_error" },
       { status: 500 }
